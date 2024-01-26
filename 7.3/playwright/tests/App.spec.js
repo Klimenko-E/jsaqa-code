@@ -6,8 +6,7 @@ test("Successful authorization", async ({ page }) => {
   await page.locator('[placeholder="Email"]').fill(email);
   await page.locator('[placeholder="Пароль"]').fill(password);
   await page.locator('[data-testid="login-submit-btn"]').click();
-  await page.waitForURL("https://netology.ru/profile/8663057");
-  await page.isVisible("text=Мои курсы и профессии");
+  await expect(page).toHaveURL("https://netology.ru/profile/8663057");
 });
 
 test("Unsuccessful authorization", async ({ page }) => {
