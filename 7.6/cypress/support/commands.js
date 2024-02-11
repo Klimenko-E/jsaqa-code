@@ -30,3 +30,10 @@ Cypress.Commands.add("login", (login, password) => {
   cy.get("#pass").type(password);
   cy.contains("Submit").click();
 });
+
+Cypress.Commands.add("addBook", (title, description) => {
+  cy.contains("Add new").click();
+  cy.get('#title').type(title);
+  ccy.get('#description').type(description);
+  cy.contains("Submit").click();
+});
